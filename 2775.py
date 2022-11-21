@@ -1,17 +1,20 @@
-#미완
-
-T = int(input()) # testcase
-
-arr = []
-res = 0
-for i in range(T*2) :
-    arr.append(int(input()))
 
 
-for i in range(0,len(arr),2) :
-    if arr[i] == 1 :
-        for j in range(1,arr[i+1]+1) :
-            res += j
-        print(res)
-        del arr[i]
-        del arr[i+1]
+T = int(input())
+
+
+for t in range(T):
+    k = int(input())
+    n = int(input())
+    room = []
+
+    for i in range(n):
+        room.append(i+1)
+
+    for j in range(k):
+        addnum = [1]
+        for i in range(n-1):
+            addnum.append(addnum[i]+room[i+1])
+        room = addnum
+
+    print(addnum[n-1])
